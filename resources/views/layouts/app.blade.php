@@ -5,9 +5,12 @@
 		
 		<link rel="stylesheet" href="{{ asset('css/app.css') }}">
     </head>
-    <body class="bg-gray-300">
+    <body class="bg-blue-300">
 		<nav class="p-6 bg-white flex justify-between mb-6">
 			<ul class="flex items-center">
+				<li>
+					<a href="{{ route('home') }}" class="font-bold text-xl">4KIDS</a>
+				</li>
 				<li>
 					<a href="{{ route('home') }}" class="p-3">Home</a>
 				</li>
