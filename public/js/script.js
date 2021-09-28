@@ -215,11 +215,11 @@ const button = document.getElementById('button');
 		});
 
 		// click button on spacebar or return keypress
-		document.body.onkeyup = (e) => {
-		  if (e.keyCode == 13 || e.keyCode == 32) {
-		    clickButton();
-		  }
-		}
+		// document.body.onkeyup = (e) => {
+		//   if (e.keyCode == 13 || e.keyCode == 32) {
+		//     clickButton();
+		//   }
+		// }
 
 		// Set up button text transition timings on page load
 		textElements = button.querySelectorAll('.button-text');

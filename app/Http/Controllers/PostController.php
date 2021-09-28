@@ -10,9 +10,15 @@ class PostController extends Controller
     public function index(){
 
         $posts = Post::paginate(20);
+        $feeds = array();
+
+        foreach ($posts as $post):
+			array_unshift($feeds, $post);
+        endforeach;
 
         return view('posts.index', [
-            'posts' => $posts
+            'posts' => $posts,
+            'feeds' => $feeds,
         ]);
     }
 
