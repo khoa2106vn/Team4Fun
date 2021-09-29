@@ -38,10 +38,18 @@
 					@enderror
 				</div>
 
-				<div class="mb-4">
+				<div class="mb-2">
 					<div class="flex items-center">
 						<input type="checkbox" name="remember" id="remember" class="mr-2">
 						<label for="remember">Remember me</label>
+					</div>
+				</div>
+
+				<div class="mb-4">
+					<div class="flex items-center">
+						<a href=" {{ route('register') }}" class="p-3 text-blue-500 hover:underline">
+							Doesn't have an account? Register now!
+						</a>
 					</div>
 				</div>
 				
