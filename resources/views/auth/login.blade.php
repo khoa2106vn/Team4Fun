@@ -48,7 +48,7 @@
 				<div class="mb-4">
 					<div class="flex items-center">
 						<a href=" {{ route('register') }}" class="p-3 text-blue-500 hover:underline">
-							Doesn't have an account? Register now!
+							Don't have an account? Register now!
 						</a>
 					</div>
 				</div>
