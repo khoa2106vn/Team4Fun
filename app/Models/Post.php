@@ -27,4 +27,12 @@ class Post extends Model
     public function likes(){
         return $this->hasMany(Like::class);
     }
+
+    protected static function boot() {
+        parent::boot();
+    
+        static::deleting(function($post) {
+            $post->likes()->delete();
+        });
+    }
 }

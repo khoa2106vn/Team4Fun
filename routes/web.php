@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\RegisterController;
 
 Route::get('/', [PostController::class, 'index'])->name('posts');
 Route::post('/', [PostController::class, 'store']);
+Route::delete('/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 
 
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout');

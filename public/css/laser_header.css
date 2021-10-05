@@ -1,0 +1,9 @@
+.effect-six > a {
+	padding: 0 5px;
+	box-shadow: inset 0 0 0 0 white;
+	transition: all 0.2s ease-in-out 0s;
+	&:hover{
+		box-shadow: inset 300px 0 0 0 white;
+		color: white;
+	}
+}

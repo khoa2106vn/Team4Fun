@@ -9,16 +9,10 @@ class PostController extends Controller
 {
     public function index(){
 
-        $posts = Post::paginate(20);
-        $feeds = array();
-
-        foreach ($posts as $post):
-			array_unshift($feeds, $post);
-        endforeach;
+        $posts = Post::latest()->with(['user','likes'])->paginate(20);
 
         return view('posts.index', [
             'posts' => $posts,
-            'feeds' => $feeds,
         ]);
     }
 
@@ -31,6 +25,14 @@ class PostController extends Controller
             'body' => $request->body
         ]);
 
+        return back();
+    }
+
+    public function destroy(Post $post){
+
+        $this->authorize('delete', $post);
+
+        $post->delete();
         return back();
     }
 }
