@@ -1,6 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
+	@auth
+		<link rel="stylesheet" href="css/sidebar.css">
+		<div class="sidenav">
+			<div class="items-center">
+				<a href="#">Friends</a>
+				<a href="#">Posts</a>
+				<a href="#">Messengers</a>
+				<a href="#">Contact</a>
+			</div>
+		</div>
+	@endauth
 	<div class="flex justify-center">
 		<div class="w-8/12 bg-white p-6 rounded-lg">
 			@auth
