@@ -24,9 +24,10 @@
 			@auth
 				<li>
 					<i class="far fa-user"></i>
-				</li> 
+				</li>
+				
 				<li>
-					<a href="{{ route('profile') }}" class="p-3">{{ auth()->user()->name }}</a>
+					<a href="{{ route('users.posts', Auth::user()) }}" class="p-3">{{ auth()->user()->name }}</a>
 				</li>
 				<li>
 					<form action="{{ route('logout') }}" method="post" class="p-3 inline">

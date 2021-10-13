@@ -5,7 +5,8 @@
   z-index: 1; /* Stay on top */
   margin-top: 0.1%; /* Stay at the top */
   left: 4%;
-  background-color: rgb(255, 184, 48); /* Black */
+  --tw-bg-opacity: 1;
+  background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 10px;
   padding-bottom: 10px;
