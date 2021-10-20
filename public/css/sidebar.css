@@ -1,10 +1,10 @@
 /* The sidebar menu */
 .sidenav {
-  width: 9%; /* Set the width of the sidebar */
+  width: 10%; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
-  margin-top: 0.1%; /* Stay at the top */
-  left: 4%;
+  /* margin-top: ; Stay at the top */
+  margin-left: 13%;
   --tw-bg-opacity: 1;
   background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
   overflow-x: hidden; /* Disable horizontal scroll */
@@ -18,9 +18,14 @@
 .sidenav a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 23px;
   color: white;
   display: block;
+  margin-left: 8%;
+}
+
+.sidenav i {
+  margin-right: 10%;
 }
 
 /* When you mouse over the navigation links, change their color */
@@ -41,3 +46,21 @@
   .sidenav a {font-size: 18px;}
 }
 
+.roundImg {
+  border-radius: 50%;
+  padding: 10px;
+  border: 5px solid white;
+  display:inline;
+}
+
+.bordergray{
+  border: 5px solid rgb(1, 6, 48);
+}
+
+.lock:hover .icon-unlock,
+.lock .icon-lock {
+    display: none;
+}
+.lock:hover .icon-lock {
+    display: inline;
+}

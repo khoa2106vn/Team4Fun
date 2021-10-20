@@ -10,17 +10,24 @@
 			<a href="{{ route('users.posts', Auth::user()) }}"> <i class="fas fa-id-card-alt"></i> Profile</a>
 			<a href="#"> <i class="far fa-images"></i> Pictures</a>
 			<a href="#"> <i class="fas fa-user-friends"></i> Friends</a>
-			<a href="#"> <i class="fas fa-comment-alt"></i> Chat</a>
+			<a href="#"> <i class="fas fa-comment-alt"></i> <span class="ml-1">Chat</span></a>
 
 		</div>
 	</div>
 </div>
 <div class="flex justify-center">
-	<div class="w-8/12">
-
-		<div class="p-6 bg-gray-800 mb-1 rounded-lg">
-			<h1 class="text-white text-2xl font-medium mb-1 font-bold"></i>{{ $user->name }}</h1>
-			<p class="text-white font-semibold">This user has a total of {{ $posts->count() }} {{ Str::plural('post', $posts->count()) }} and {{ $user->receivedLikes->count() }} {{ Str::plural('like', $user->receivedLikes->count()) }}</p>
+	<div class="w-2/4">
+		<div class="p-6 bg-gray-800 mb-1 rounded-lg ">
+			<div class="grid justify-items-center text-center">
+				<div>
+					<img src="{{ asset('images/boy.png') }}" class="roundImg" style="width: 200px; height: auto">
+				</div>
+				<div class="">
+					<h1 class="text-white text-2xl font-medium mb-1 font-bold">
+					<span class="">{{ $user->name }}</span></h1>
+					<p class="text-white font-semibold">This user has a total of {{ $posts->count() }} {{ Str::plural('post', $posts->count()) }} and {{ $user->receivedLikes->count() }} {{ Str::plural('like', $user->receivedLikes->count()) }}</p>
+				</div>
+			</div>
 		</div>
 
 		<div class="bg-white p-6 rounded-lg">

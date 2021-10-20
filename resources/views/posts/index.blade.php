@@ -14,8 +14,8 @@
 			</div>
 		</div>
 	@endauth
-	<div class="flex justify-center mb-8">
-		<div class="w-8/12 bg-white p-6 rounded-lg">
+	<div class="flex justify-center mb-8 ">
+		<div class="w-2/4 bg-white p-6 rounded-lg">
 			@auth
 				<form action="{{ route('posts') }}" method="post" class="mb-4" onsubmit="initBurst()" >
 					
