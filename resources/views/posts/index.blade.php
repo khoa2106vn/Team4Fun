@@ -10,7 +10,7 @@
 				<a href="{{ route('users.posts', Auth::user()) }}"> <i class="fas fa-id-card-alt"></i> Profile</a>
 				<a href="#"> <i class="far fa-images"></i> Pictures</a>
 				<a href="#"> <i class="fas fa-user-friends"></i> Friends</a>
-				<a href="#"> <i class="fas fa-comment-alt"></i> Chat</a>
+				<a href="#"> <i class="fas fa-comment-alt ml-1"></i> Chat</a>
 			</div>
 		</div>
 	@endauth
