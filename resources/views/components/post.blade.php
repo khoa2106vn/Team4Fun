@@ -1,4 +1,8 @@
-@props(['post' => $post])
+@props([
+'post' => $post,
+
+])
+
 
 <div class="mb-8">
     <script src="{{ asset('js/hideClick.js') }}"></script>
@@ -22,14 +26,14 @@
     <div class="ml-6">
         <p class="mb-2 ml-20 text-xl bg-gray-100 p-2 rounded-lg w-4/6 hover:bg-gray-200">{{ $post->body }}</p>
 
-        <div class="flex items-center mt-5">
+        <div class="flex items-center mt-1">
 
             <span class="text-green-500 mr-2 ml-20 text-2xl ">{{ $post->likes->count() }}
                 <!-- {{ Str::plural('like', $post->likes->count()) }} -->
             </span>
-            
+
             @guest
-                <i class="fas fa-heart text-green-500 mr-2 text-2xl mt-1"></i>
+            <i class="fas fa-heart text-green-500 mr-2 text-2xl mt-1"></i>
             @endguest
             @auth
 
@@ -39,11 +43,10 @@
 
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
-                <button type="submit" 
-                class="text-green-500 mr-2 hover:text-green-400 text-xl
+                <button type="submit" class="text-green-500 mr-2 hover:text-green-400 text-xl
                 transition duration-500 ease-in-out transform hover:-translate-y-1 
-                hover:scale-110 mt-1"> 
-                <i class="fas fa-heart"> </i></button>
+                hover:scale-110 mt-1">
+                    <i class="fas fa-heart"> </i></button>
             </form>
             @else
             <form action="{{ route('posts.likes', $post) }}" method="post" class="mr-1">
@@ -68,7 +71,7 @@
             </button>
 
             @endauth
-            
+
             @can('delete', $post)
             <div>
 
@@ -79,7 +82,7 @@
 
                     <button type="submit" class="text-red-500 hover:text-red-400 
                     mr-2 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-                    <i class="fas fa-trash-alt text-xl mt-1"></i></button>
+                        <i class="fas fa-trash-alt text-xl mt-1"></i></button>
                 </form>
 
             </div>
@@ -90,7 +93,7 @@
         </div>
         <div id="{{ $post->id }}" style="display:none" class="flex items-center">
             @auth
-            <form action="" method="" class="mb-4" onsubmit="initBurst()">
+            <form action="{{ route('comments.store', $post) }}" method="post" class="mb-4" onsubmit="initBurst()">
 
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
@@ -98,17 +101,27 @@
                     <label for="body" class="sr-only">Body</label>
                     <textarea name="body" id="body" cols="50" rows="1" class="bg-gray-100 border-2 w-2/3 p-4 rounded-lg 
                                 @error('body') border-red-500 @enderror ml-20 mt-10" style="display:inline-block" placeholder="Share your thoughts!"></textarea>
-
                     @error('body')
                     <div class="text-red-500 mt-2 text-sm">
                         {{ $message }}
                     </div>
                     @enderror
+        
                 </div>
+                <input type="hidden" name="post_id" id="post_id" value="{{ $post->id }}"/>
+                <div>
+                    <link rel="stylesheet" href="css/button.css">
+                    <button type="submit" class="button button--moema px-5 py-3 bg-gray-800 
+						hover:bg-gray-700 hover:text-white text-gray-300 relative block focus:outline-none border-2 
+						border-solid rounded-lg text-sm text-center font-semibold uppercase tracking-widest float-right">Reply!</button>
 
+                </div>
             </form>
 
             @endauth
+        </div>
+        <div class="ml-10">
+            @include('posts.commentsDisplay', ['comments' => $post->comments, 'post_id' => $post->id])
         </div>
     </div>
 
