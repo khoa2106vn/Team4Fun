@@ -25,14 +25,15 @@
     </div>
 
     <div class="ml-6">
-        <div class="bg-gray-100 p-2 rounded-lg w-4/6 hover:bg-gray-200 ml-20 mb-2">
-            <p class="text-xl mb-2">{{ $post->body }}</p>
+        <div class="bg-gray-100 p-3 rounded-lg w-5/6 hover:bg-gray-200 ml-20 mb-2">
+            <p class=" text-2xl">{{ $post->body }}</p>
             <div class="flex justify-center">
-                <object data="{{ asset('images/' . $post->image_path) }}" class="rounded-lg w-full">
+                <object data="{{ asset('images/' . $post->image_path) }}" class="w-full rounded-lg mt-2">
                 </object>
             </div>
         </div>
-        <div class="flex items-center mt-1">
+        <div class="flex items-center justify-center mt-1 mr-16 bg-gray-100 backdrop-brightness-75 w-5/6 ml-20 py-2 
+        rounded-lg pr-16 hover:bg-gray-200 space-x-40">
 
             <span class="text-green-500 mr-2 ml-20 text-2xl ">{{ $post->likes->count() }}
                 <!-- {{ Str::plural('like', $post->likes->count()) }} -->

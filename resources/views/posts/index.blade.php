@@ -55,7 +55,7 @@
 			</form>
 		</div>
 		@endauth
-		<div class="mt-28">
+		<div class="mt-28" style="width:95%">
 			@if ($posts->count())
 
 			@foreach ($posts as $post)
