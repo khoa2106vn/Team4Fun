@@ -14,8 +14,9 @@ Route::get('/', [PostController::class, 'index'])->name('posts');
 Route::post('/', [PostController::class, 'store']);
 Route::delete('/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 
-Route::post('/posts/{post}/comments/{comment}', [CommentController::class, 'store']);
-Route::delete('/posts/{post}/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
+Route::get('/posts/{post}/', [CommentController::class, 'index'])->name('comments');
+Route::post('/posts/{post}/', [CommentController::class, 'store'])->name('comments.store');
+Route::delete('/posts/{comment}/', [CommentController::class, 'destroy'])->name('comments.destroy');
 
 Route::get('/users/{user:username}/posts', [UserPostController::class, 'index'])->name('users.posts');
 
