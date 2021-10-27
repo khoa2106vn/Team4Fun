@@ -20,12 +20,18 @@
         <span class="ml-1">@_</span><span>{{ $post->user->username }}</span>
         <p class="text-gray=600 text-sm">
             {{ $post->created_at->diffForHumans() }}
+
         </p>
     </div>
 
     <div class="ml-6">
-        <p class="mb-2 ml-20 text-xl bg-gray-100 p-2 rounded-lg w-4/6 hover:bg-gray-200">{{ $post->body }}</p>
-
+        <div class="bg-gray-100 p-2 rounded-lg w-4/6 hover:bg-gray-200 ml-20 mb-2">
+            <p class="text-xl mb-2">{{ $post->body }}</p>
+            <div class="flex justify-center">
+                <object data="{{ asset('images/' . $post->image_path) }}" class="rounded-lg w-full">
+                </object>
+            </div>
+        </div>
         <div class="flex items-center mt-1">
 
             <span class="text-green-500 mr-2 ml-20 text-2xl ">{{ $post->likes->count() }}
@@ -91,29 +97,29 @@
 
 
         </div>
-        <div id="{{ $post->id }}" style="display:none" class="flex items-center">
+        <div id="{{ $post->id }}" style="display:none" class=" w-5/6">
             @auth
-            <form action="{{ route('comments.store', $post) }}" method="post" class="mb-4" onsubmit="initBurst()">
+            <form action="{{ route('comments.store', $post) }}" method="post" class="mb-4 flex w-full items-center" onsubmit="initBurst()">
 
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
                 <div class="mb-4">
                     <label for="body" class="sr-only">Body</label>
-                    <textarea name="body" id="body" cols="50" rows="1" class="bg-gray-100 border-2 w-2/3 p-4 rounded-lg 
+                    <textarea name="body" id="body" cols="50" rows="3" class="bg-gray-100 border-2 w-full p-4 rounded-lg 
                                 @error('body') border-red-500 @enderror ml-20 mt-10" style="display:inline-block" placeholder="Share your thoughts!"></textarea>
                     @error('body')
                     <div class="text-red-500 mt-2 text-sm">
                         {{ $message }}
                     </div>
                     @enderror
-        
+
                 </div>
-                <input type="hidden" name="post_id" id="post_id" value="{{ $post->id }}"/>
+                <input type="hidden" name="post_id" id="post_id" value="{{ $post->id }}" />
                 <div>
                     <link rel="stylesheet" href="css/button.css">
                     <button type="submit" class="button button--moema px-5 py-3 bg-gray-800 
 						hover:bg-gray-700 hover:text-white text-gray-300 relative block focus:outline-none border-2 
-						border-solid rounded-lg text-sm text-center font-semibold uppercase tracking-widest float-right">Reply!</button>
+						border-solid rounded-lg text-sm text-center font-semibold uppercase tracking-widest float-right ml-24">Reply!</button>
 
                 </div>
             </form>

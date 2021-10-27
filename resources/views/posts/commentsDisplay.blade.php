@@ -52,7 +52,7 @@
             @csrf
             <div class="" style="display: inline-block; vertical-align:middle">
                 <textarea name="body" id="body" cols="50" rows="1" class="bg-gray-100 border-2 w-3/4 p-1 rounded-lg 
-                                @error('body') border-red-500 @enderror ml-20 mt-2" style="display:inline-block" placeholder="Share your thoughts!"></textarea>
+                                @error('body') border-red-500 @enderror ml-20 mt-2 h-16" style="display:inline-block" placeholder="Share your thoughts!"></textarea>
                 @error('body')
                 <div class="text-red-500 mt-2 text-sm">
                     {{ $message }}

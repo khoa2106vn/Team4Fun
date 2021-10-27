@@ -18,11 +18,17 @@ class PostController extends Controller
 
     public function store(Request $request){
         $this->validate($request, [
-            'body' => 'required'
+            'body' => 'required',
+            'image' => 'mimes:jpg,png,jpeg,gif|max:10096',
         ]);
 
+        $newImageName = time() . '.' . $request->image->extension();
+
+        $request->image->move(public_path('images'), $newImageName);
+
         $request->user()->posts()->create([ 
-            'body' => $request->body
+            'body' => $request->body,
+            'image_path' => $newImageName,
         ]);
 
         return back();
