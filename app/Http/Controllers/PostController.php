@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class PostController extends Controller
 {
@@ -13,8 +14,26 @@ class PostController extends Controller
         $posts = Post::latest()->with(['user', 'likes','comments'])->paginate(20);
 
         return view('posts.index', [
-            'posts' => $posts,
+            'posts' => $posts
         ]);
+    }
+    public function storeAvatar(Request $request)
+    {
+        $this->validate($request, [
+            'image' => 'mimes:jpg,png,jpeg,gif|max:10096',
+        ]);
+        $newImageName = NULL;
+        if ($request->has('image')) {
+            $newImageName = time() . '.' . $request->image->extension();
+
+            $request->image->move(public_path('images'), $newImageName);
+        }
+        User::where ('id',$request->user()->id)->update(['avatar' => $newImageName]);
+
+
+
+
+        return back();
     }
 
     public function store(Request $request)
