@@ -18,11 +18,13 @@ Route::get('/posts/{post}/', [CommentController::class, 'index'])->name('comment
 Route::post('/posts/{post}/', [CommentController::class, 'store'])->name('comments.store');
 Route::delete('/posts/{comment}/', [CommentController::class, 'destroy'])->name('comments.destroy');
 
+Route::post('/users', [PostController::class, 'storeAvatar'])->name('post.avatar');
+
 Route::get('/users/{user:username}/posts', [UserPostController::class, 'index'])->name('users.posts');
 
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 
-Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+//Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);
