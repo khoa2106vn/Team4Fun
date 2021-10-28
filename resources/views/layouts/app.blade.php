@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="css/sidebar.css">
 </head>
 
-<body class="bg-blue-300 ">
+<body class="bg-gray-300 ">
 	<div class="flex justify-center">
 		<nav class="p-6 bg-white flex justify-between mb-6 w-2/4 rounded-lg">
 
