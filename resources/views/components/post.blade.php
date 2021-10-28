@@ -11,8 +11,13 @@
     <link rel="stylesheet" href="{{ asset('fontawesome/css/all.css') }}">
     <div class="inline-block h-1">
         <a href="{{ route('users.posts', $post->user) }}">
+            @if ($post->user->avatar != NULL)
             <img src="{{ asset('images/' . $post->user->avatar) }}" class="transition duration-500 ease-in-out transform hover:-translate-y-1
                 hover:scale-110 mt-1 hover:bg-gray-200 inline object-cover w-16 h-16 mr-2 rounded-full border-solid border-4 border-light-blue-500" style="width: 100px; height: 100px">
+            @else 
+            <img src="{{ asset('images/boy.png') }}" class="transition duration-500 ease-in-out transform hover:-translate-y-1
+                hover:scale-110 mt-1 hover:bg-gray-200 inline object-cover w-16 h-16 mr-2 rounded-full border-solid border-4 border-light-blue-500" style="width: 100px; height: 100px">
+            @endif
         </a>
     </div>
     <div class="inline-block">

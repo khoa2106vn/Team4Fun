@@ -7,10 +7,15 @@
 
 <div @if($comment->parent_id != null) style="margin-left:40px;" @endif>
     <div class="inline-block h-1">
-        <a href="{{ route('users.posts', $post->user) }}">
+        <a href="{{ route('users.posts', $comment->user) }}">
+            @if ($comment->user->avatar != NULL)
             <img src="{{ asset('images/' . $comment->user->avatar) }}" class="transition duration-500 ease-in-out transform hover:-translate-y-1
                 hover:scale-110 mt-1 hover:bg-gray-200 inline object-cover w-16 h-16 mr-2 rounded-full border-solid border-4 border-light-blue-500" style="width: 80px; height: 80px">
-        </a>
+            @else
+            <img src="{{ asset('images/boy.png') }}" class="transition duration-500 ease-in-out transform hover:-translate-y-1
+                hover:scale-110 mt-1 hover:bg-gray-200 inline object-cover w-16 h-16 mr-2 rounded-full border-solid border-4 border-light-blue-500" style="width: 80px; height: 80px">
+            @endif
+            </a>
     </div>
     <div class="inline-block">
         <a href="{{ route('users.posts', $comment->user) }}" class="font-bold">{{ $comment->user->name }}</a>

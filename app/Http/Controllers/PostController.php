@@ -30,9 +30,6 @@ class PostController extends Controller
         }
         User::where ('id',$request->user()->id)->update(['avatar' => $newImageName]);
 
-
-
-
         return back();
     }
 
