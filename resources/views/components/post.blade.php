@@ -4,7 +4,7 @@
 ])
 
 
-<div class="mb-8 transition duration-500 ease-in-out transform hover:-translate-y-1
+<div class="mb-8 transition duration-200 ease-in-out transform hover:-translate-y-1
                 hover:scale-105 ml-3">
     <script src="{{ asset('js/hideClick.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
