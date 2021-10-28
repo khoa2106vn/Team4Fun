@@ -14,7 +14,7 @@ class PostController extends Controller
         $posts = Post::latest()->with(['user', 'likes','comments'])->paginate(20);
 
         return view('posts.index', [
-            'posts' => $posts,
+            'posts' => $posts
         ]);
     }
     public function storeAvatar(Request $request)

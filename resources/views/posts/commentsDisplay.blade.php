@@ -8,8 +8,8 @@
 <div @if($comment->parent_id != null) style="margin-left:40px;" @endif>
     <div class="inline-block h-1">
         <a href="{{ route('users.posts', $post->user) }}">
-            <img src="{{ asset('images/boy.png') }}" class="roundImg transition duration-500 ease-in-out transform hover:-translate-y-1 
-                hover:scale-110 mt-1 hover:bg-gray-200" style="width: 80px; height: auto">
+            <img src="{{ asset('images/' . $comment->user->avatar) }}" class="transition duration-500 ease-in-out transform hover:-translate-y-1
+                hover:scale-110 mt-1 hover:bg-gray-200 inline object-cover w-16 h-16 mr-2 rounded-full border-solid border-4 border-light-blue-500" style="width: 80px; height: 80px">
         </a>
     </div>
     <div class="inline-block">
@@ -51,7 +51,7 @@
         <form method="post" action="{{ route('comments.store', $post) }}">
             @csrf
             <div class="" style="display: inline-block; vertical-align:middle">
-                <textarea name="body" id="body" cols="50" rows="1" class="bg-gray-100 border-2 w-3/4 p-1 rounded-lg 
+                <textarea name="body" id="body" cols="50" rows="1" class="bg-gray-100 border-2 w-3/4 p-1 rounded-lg
                                 @error('body') border-red-500 @enderror ml-20 mt-2 h-16" style="display:inline-block" placeholder="Share your thoughts!"></textarea>
                 @error('body')
                 <div class="text-red-500 mt-2 text-sm">

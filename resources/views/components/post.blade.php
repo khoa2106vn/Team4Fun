@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="{{ asset('fontawesome/css/all.css') }}">
     <div class="inline-block h-1">
         <a href="{{ route('users.posts', $post->user) }}">
-            <img src="{{ asset('images/boy.png') }}" class="roundImg transition duration-500 ease-in-out transform hover:-translate-y-1 
-                hover:scale-110 mt-1 hover:bg-gray-200" style="width: 100px; height: auto">
+            <img src="{{ asset('images/' . $post->user->avatar) }}" class="transition duration-500 ease-in-out transform hover:-translate-y-1
+                hover:scale-110 mt-1 hover:bg-gray-200 inline object-cover w-16 h-16 mr-2 rounded-full border-solid border-4 border-light-blue-500" style="width: 100px; height: 100px">
         </a>
     </div>
     <div class="inline-block">
@@ -32,7 +32,7 @@
                 </object>
             </div>
         </div>
-        <div class="flex items-center justify-center mt-1 mr-16 bg-gray-100 backdrop-brightness-75 w-5/6 ml-20 py-2 
+        <div class="flex items-center justify-center mt-1 mr-16 bg-gray-100 backdrop-brightness-75 w-5/6 ml-20 py-2
         rounded-lg pr-16 hover:bg-gray-200 space-x-40">
 
             <span class="text-green-500 mr-2 ml-20 text-2xl ">{{ $post->likes->count() }}
@@ -51,7 +51,7 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
                 <button type="submit" class="text-green-500 mr-2 hover:text-green-400 text-xl
-                transition duration-500 ease-in-out transform hover:-translate-y-1 
+                transition duration-500 ease-in-out transform hover:-translate-y-1
                 hover:scale-110 mt-1">
                     <i class="fas fa-heart"> </i></button>
             </form>
@@ -72,7 +72,7 @@
 
             <button onclick="TestsFunction('{{ $post->id }}')" class="mr-3">
                 <i class="far fa-comment-dots text-2xl
-                transition duration-500 ease-in-out transform hover:-translate-y-1 
+                transition duration-500 ease-in-out transform hover:-translate-y-1
                 hover:scale-110 mt-1">
                 </i>
             </button>
@@ -87,7 +87,7 @@
                     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                     @method('DELETE')
 
-                    <button type="submit" class="text-red-500 hover:text-red-400 
+                    <button type="submit" class="text-red-500 hover:text-red-400
                     mr-2 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
                         <i class="fas fa-trash-alt text-xl mt-1"></i></button>
                 </form>
@@ -106,7 +106,7 @@
 
                 <div class="mb-4">
                     <label for="body" class="sr-only">Body</label>
-                    <textarea name="body" id="body" cols="50" rows="3" class="bg-gray-100 border-2 w-full p-4 rounded-lg 
+                    <textarea name="body" id="body" cols="50" rows="3" class="bg-gray-100 border-2 w-full p-4 rounded-lg
                                 @error('body') border-red-500 @enderror ml-20 mt-10" style="display:inline-block" placeholder="Share your thoughts!"></textarea>
                     @error('body')
                     <div class="text-red-500 mt-2 text-sm">
@@ -118,8 +118,8 @@
                 <input type="hidden" name="post_id" id="post_id" value="{{ $post->id }}" />
                 <div>
                     <link rel="stylesheet" href="css/button.css">
-                    <button type="submit" class="button button--moema px-5 py-3 bg-gray-800 
-						hover:bg-gray-700 hover:text-white text-gray-300 relative block focus:outline-none border-2 
+                    <button type="submit" class="button button--moema px-5 py-3 bg-gray-800
+						hover:bg-gray-700 hover:text-white text-gray-300 relative block focus:outline-none border-2
 						border-solid rounded-lg text-sm text-center font-semibold uppercase tracking-widest float-right ml-24">Reply!</button>
 
                 </div>

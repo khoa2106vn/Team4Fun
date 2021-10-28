@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@auth
 <div>
 	<link rel="stylesheet" href="../../fontawesome/css/all.css">
 	<link rel="stylesheet" href="../../css/sidebar.css">
@@ -15,12 +16,14 @@
 		</div>
 	</div>
 </div>
+@endauth
 <div class="flex justify-center">
 	<div class="w-2/4">
 		<div class="p-6 bg-gray-800 mb-1 rounded-lg ">
 			<div class="grid justify-items-center text-center">
 				<div>
-					<img src="{{ asset('images/' . $user->avatar) }}" class="roundImg" style="width: 200px; height: auto">
+					<img src="{{ asset('images/' . $user->avatar) }}" class="transition duration-500 ease-in-out transform hover:-translate-y-1
+                hover:scale-110 mt-1 hover:bg-gray-200 inline object-cover w-16 h-16 mr-2 rounded-full border-solid border-4 border-light-blue-500" style="width: 250px; height: 250px">
 				</div>
 				<div class="">
 					<h1 class="text-white text-2xl font-medium mb-1 font-bold">
