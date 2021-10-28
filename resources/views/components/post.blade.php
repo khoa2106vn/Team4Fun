@@ -4,7 +4,8 @@
 ])
 
 
-<div class="mb-8">
+<div class="mb-8 transition duration-500 ease-in-out transform hover:-translate-y-1
+                hover:scale-105 ml-3">
     <script src="{{ asset('js/hideClick.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
     <link rel="stylesheet" href="css/button.css">
@@ -31,7 +32,7 @@
 
     <div class="ml-6 ">
         <div class="bg-gray-100 p-3 rounded-lg w-5/6 hover:bg-gray-200 ml-20 mb-2 transition duration-500 ease-in-out transform hover:-translate-y-1
-                hover:scale-110" >
+                hover:scale-107" >
             <p class=" text-2xl ">{{ $post->body }}</p>
             <div class="flex justify-center">
                 <object data="{{ asset('images/' . $post->image_path) }}" class="w-full rounded-lg mt-2 ">

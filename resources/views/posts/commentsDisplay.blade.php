@@ -5,7 +5,8 @@
 <link rel="stylesheet" href="{{ asset('fontawesome/css/all.css') }}">
 
 
-<div @if($comment->parent_id != null) style="margin-left:40px;" @endif>
+<div class=" transition duration-500 ease-in-out transform hover:-translate-y-1
+                hover:scale-105" @if($comment->parent_id != null) style="margin-left:40px;" @endif>
     <div class="inline-block h-1">
         <a href="{{ route('users.posts', $comment->user) }}">
             @if ($comment->user->avatar != NULL)
@@ -27,7 +28,7 @@
 
     <div class="ml-6">
         <p class="mb-2 ml-14 text-xl bg-gray-100 p-2 rounded-lg w-4/6 hover:bg-gray-200 transition duration-500 ease-in-out transform hover:-translate-y-1
-                hover:scale-110">{{ $comment->body }}</p>
+                hover:scale-107">{{ $comment->body }}</p>
     </div>
     @auth
     <div class=" ml-20 flex items-center mt-1">
