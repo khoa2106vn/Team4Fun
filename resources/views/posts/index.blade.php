@@ -17,7 +17,7 @@
 @endauth
 <div class="flex justify-center mb-8 ">
 	<div class="w-2/4 bg-white p-6 rounded-lg">
-		<div class="">
+		<div class="mb-16">
 			@auth
 			<form action="{{ route('posts') }}" method="post" enctype="multipart/form-data" class="mb-4" onsubmit="initBurst()">
 
@@ -55,7 +55,7 @@
 			</form>
 		</div>
 		@endauth
-		<div class="mt-28" style="width:95%">
+		<div class="" style="width:95%">
 			@if ($posts->count())
 
 			@foreach ($posts as $post)
