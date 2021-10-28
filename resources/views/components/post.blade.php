@@ -21,7 +21,7 @@
         </a>
     </div>
     <div class="inline-block">
-        <a href="{{ route('users.posts', $post->user) }}" class="font-bold">{{ $post->user->name }}</a>
+        <a href="{{ route('users.posts', $post->user) }}" class="font-bold ">{{ $post->user->name }}</a>
         <span class="ml-1">@_</span><span>{{ $post->user->username }}</span>
         <p class="text-gray=600 text-sm">
             {{ $post->created_at->diffForHumans() }}
@@ -29,16 +29,18 @@
         </p>
     </div>
 
-    <div class="ml-6">
-        <div class="bg-gray-100 p-3 rounded-lg w-5/6 hover:bg-gray-200 ml-20 mb-2">
-            <p class=" text-2xl">{{ $post->body }}</p>
+    <div class="ml-6 ">
+        <div class="bg-gray-100 p-3 rounded-lg w-5/6 hover:bg-gray-200 ml-20 mb-2 transition duration-500 ease-in-out transform hover:-translate-y-1
+                hover:scale-110" >
+            <p class=" text-2xl ">{{ $post->body }}</p>
             <div class="flex justify-center">
-                <object data="{{ asset('images/' . $post->image_path) }}" class="w-full rounded-lg mt-2">
+                <object data="{{ asset('images/' . $post->image_path) }}" class="w-full rounded-lg mt-2 ">
                 </object>
             </div>
         </div>
         <div class="flex items-center justify-center mt-1 mr-16 bg-gray-100 backdrop-brightness-75 w-5/6 ml-20 py-2
-        rounded-lg pr-16 hover:bg-gray-200 space-x-40">
+        rounded-lg pr-16 hover:bg-gray-200 space-x-40 transition duration-500 ease-in-out transform hover:-translate-y-1
+                hover:scale-110">
 
             <span class="text-green-500 mr-2 ml-20 text-2xl ">{{ $post->likes->count() }}
                 <!-- {{ Str::plural('like', $post->likes->count()) }} -->

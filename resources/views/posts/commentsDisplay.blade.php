@@ -26,7 +26,8 @@
     </div>
 
     <div class="ml-6">
-        <p class="mb-2 ml-14 text-xl bg-gray-100 p-2 rounded-lg w-4/6 hover:bg-gray-200">{{ $comment->body }}</p>
+        <p class="mb-2 ml-14 text-xl bg-gray-100 p-2 rounded-lg w-4/6 hover:bg-gray-200 transition duration-500 ease-in-out transform hover:-translate-y-1
+                hover:scale-110">{{ $comment->body }}</p>
     </div>
     @auth
     <div class=" ml-20 flex items-center mt-1">
