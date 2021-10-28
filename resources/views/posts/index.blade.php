@@ -36,11 +36,10 @@
 				</div>
 				<div class="float-right flex items-center">
 					<div class=" inline-block mr-2">
-						<label class=" w-full flex flex-col items-center px-2 py-2 bg-white rounded-md 
+						<label class=" w-full flex flex-col items-center px-2 py-3 bg-white rounded-md 
 					shadow-md tracking-wide uppercase border border-blue cursor-pointer hover:bg-purple-600 
 					hover:text-white text-purple-600 ease-linear transition-all duration-150">
-							<i class="fas fa-cloud-upload-alt fa-3x" style="font-size: 15px"></i>
-							<span class="mt-2 leading-normal" style="font-size:13px">Select a file</span>
+							<span class="leading-normal" style="font-size:13px">Upload an image!</span>
 							<input type="file" class="hidden" name="image"/>
 					</div>
 					<div class="inline-block">
