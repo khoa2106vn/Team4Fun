@@ -22,7 +22,6 @@ Route::get('/users/{user:username}/posts', [UserPostController::class, 'index'])
 
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 
-Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);
