@@ -9,10 +9,6 @@
 		<div class="items-center">
 			<a href="{{ route('posts') }}"> <i class="fas fa-mail-bulk"></i> Posts</a>
 			<a href="{{ route('users.posts', Auth::user()) }}"> <i class="fas fa-id-card-alt"></i> Profile</a>
-			<a href="#"> <i class="far fa-images"></i> Pictures</a>
-			<a href="#"> <i class="fas fa-user-friends"></i> Friends</a>
-			<a href="#"> <i class="fas fa-comment-alt"></i> <span class="ml-1">Chat</span></a>
-
 		</div>
 	</div>
 </div>

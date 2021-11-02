@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Snipe\BanBuilder\CensorWords;
+
 use App\Models\Post;
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
+use Snipe\BanBuilder\CensorWords;
 
 class PostController extends Controller
 {
@@ -48,11 +49,16 @@ class PostController extends Controller
         }
         //THêm từ cấm
         $censor = new CensorWords;
-
-        $badwords = $censor->setDictionary('vn');
+        $langs = array('en-us','jp');
+        $badwords = $censor->setDictionary($langs);
 
         $censor->setReplaceChar("*");
         $string = $censor->censorString($request->body);
+
+        if ($string['clean']!=$request->body){
+            $string['clean']='(´｡• ω •｡`) ♡';
+        }
+
         $request->user()->posts()->create([
             'body' => $string['clean'],
             'image_path' => $newImageName,

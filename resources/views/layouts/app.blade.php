@@ -15,24 +15,29 @@
 			<ul class="flex items-center">
 				<li>
 					<a href="{{ route('posts') }}" class="font-bold text-xl"><img src="{{ asset('images/logo4kid.png') }}" class="transition duration-500 ease-in-out transform hover:-translate-y-1
-                hover:scale-110 mt-1 hover:bg-gray-200 inline object-cover w-16 h-16 mr-2 rounded-full border-solid border-4 border-light-blue-500" style="width: auto; height: 50px"></a>
-				</li>
-				<li>
-					<a href="{{ route('posts') }}" class="p-3">Home</a>
+                hover:scale-110 hover:bg-gray-200 inline object-cover w-16 h-16 mr-2 rounded-full" style="width: auto; height: 50px"></a>
 				</li>
 			</ul>
 
 			<ul class="flex items-center">
 				@auth
 				<li>
-					<i class="far fa-user"></i>
+					<a href="{{ route('users.posts', auth()->user()) }}">
+						@if (auth()->user()->avatar != NULL)
+						<img src="{{ asset('images/' . auth()->user()->avatar) }}" class="transition duration-500 ease-in-out transform hover:-translate-y-1
+                hover:scale-110 mt-1 hover:bg-gray-200 inline object-cover w-16 h-16 rounded-full border-solid border-4 border-light-blue-500" style="width: 80px; height: 50px">
+						@else
+						<img src="{{ asset('images/boy.png') }}" class="transition duration-500 ease-in-out transform hover:-translate-y-1
+                hover:scale-110 mt-1 hover:bg-gray-200 inline object-cover w-16 h-16 rounded-full border-solid border-4 border-light-blue-500" style="width: 80px; height: 50px">
+						@endif
+					</a>
 				</li>
 
 				<li>
-					<a href="{{ route('users.posts', Auth::user()) }}" class="p-3">{{ auth()->user()->name }}</a>
+					<a href="{{ route('users.posts', Auth::user()) }}" class="p-3 text-lg hover:bg-gray-200 w-16 h-16 mr-2 rounded-full">{{ auth()->user()->name }}</a>
 				</li>
 				<li>
-					<form action="{{ route('logout') }}" method="post" class="p-3 inline">
+					<form action="{{ route('logout') }}" method="post" class="p-3 inline hover:bg-gray-200 w-16 h-16 mr-2 rounded-full">
 						@csrf
 						<button type="submit"><i class="fas fa-sign-out-alt mr-1"></i>Logout</button>
 					</form>
