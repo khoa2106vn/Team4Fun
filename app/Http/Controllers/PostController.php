@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Snipe\BanBuilder\CensorWords;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -45,8 +46,15 @@ class PostController extends Controller
 
             $request->image->move(public_path('images'), $newImageName);
         }
+        //THêm từ cấm
+        $censor = new CensorWords;
+
+        $badwords = $censor->setDictionary('vn');
+
+        $censor->setReplaceChar("*");
+        $string = $censor->censorString($request->body);
         $request->user()->posts()->create([
-            'body' => $request->body,
+            'body' => $string['clean'],
             'image_path' => $newImageName,
         ]);
 

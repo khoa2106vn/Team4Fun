@@ -3,7 +3,6 @@
 
 <head>
 	<title>4Kids</title>
-
 	<link rel="stylesheet" href="{{ asset('css/app.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/laser_header.css') }}">
 	<link rel="stylesheet" href="css/sidebar.css">
@@ -15,7 +14,8 @@
 
 			<ul class="flex items-center">
 				<li>
-					<a href="{{ route('posts') }}" class="font-bold text-xl">4KIDS</a>
+					<a href="{{ route('posts') }}" class="font-bold text-xl"><img src="{{ asset('images/logo4kid.png') }}" class="transition duration-500 ease-in-out transform hover:-translate-y-1
+                hover:scale-110 mt-1 hover:bg-gray-200 inline object-cover w-16 h-16 mr-2 rounded-full border-solid border-4 border-light-blue-500" style="width: auto; height: 50px"></a>
 				</li>
 				<li>
 					<a href="{{ route('posts') }}" class="p-3">Home</a>
