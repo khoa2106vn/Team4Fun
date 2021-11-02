@@ -3,6 +3,7 @@
 @section('content')
 @auth
 <div>
+	<script src="{{ asset('js/imagePreview.js') }}"></script>
 	<link rel="stylesheet" href="../../fontawesome/css/all.css">
 	<link rel="stylesheet" href="../../css/sidebar.css">
 	<div class="sidenav">
@@ -97,6 +98,12 @@
 					hover:text-white text-purple-600 ease-linear transition-all duration-150">
 							<span class="leading-normal" style="font-size:13px">Upload an image!</span>
 							<input type="file" class="hidden" name="image" />
+					</div>
+					<div class=" inline-block mr-2">
+						<input type="reset" value="Reset" class=" w-full flex flex-col items-center px-2 py-3 bg-white rounded-md 
+					shadow-md tracking-wide uppercase border border-blue cursor-pointer hover:bg-purple-600 
+					hover:text-white text-purple-600 ease-linear transition-all duration-150 leading-normal" style="font-size:13px"
+					onclick="clearFile(event)">
 					</div>
 					<div class="inline-block">
 						<link rel="stylesheet" href="css/button.css">

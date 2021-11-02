@@ -10,6 +10,7 @@
 	<div class="items-center effect-six">
 		<a href="{{ route('posts') }}"> <i class="fas fa-mail-bulk"></i> Posts</a>
 		<a href="{{ route('users.posts', Auth::user()) }}"> <i class="fas fa-id-card-alt"></i> Profile</a>
+		<a></a>
 	</div>
 </div>
 @endauth
@@ -62,7 +63,7 @@
 			</form>
 		</div>
 		@endauth
-		<div class=" ml-6" style="width:90%">
+		<div class=" ml-2" style="width:90%">
 			@if ($posts->count())
 
 			@foreach ($posts as $post)
