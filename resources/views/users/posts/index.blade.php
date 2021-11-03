@@ -41,7 +41,7 @@
 
 						<input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
-
+                    <div class="align-middle grid justify-items-center ">
 						<div class="float-right flex items-center">
 							<div class=" inline-block mr-2">
 								<label class="button button--moema px-5 py-3 bg-gray-800
@@ -49,7 +49,7 @@
 						border-solid rounded-lg text-sm text-center font-semibold uppercase tracking-widest">
 									<i class="fas fa-cloud-upload-alt fa-3x" style="font-size: 15px"></i>
 									<span class="mt-2 leading-normal" style="font-size:13px">Change avatar</span>
-									<input type="file" class="hidden" name="image" />
+									<input type="file" accept="image/*" class="hidden" onchange="loadFile(event)" name="image" id="myInput" />
 							</div>
 							<div class="inline-block">
 								<link rel="stylesheet" href="css/button.css">
@@ -59,6 +59,12 @@
 
 							</div>
 						</div>
+                        <div class="my-10">
+					        <img id="output" class="hover:bg-gray-200 transition duration-200 ease-in-out transform hover:-translate-y-1
+                            hover:scale-110 rounded-lg" style="max-width:600px;"/>
+				        </div>
+                    </div>
+
 
 					</form>
 					@endif
@@ -79,7 +85,7 @@
 
 				<div class="mb-4">
 					<label for="body" class="sr-only">Body</label>
-					<textarea name="body" id="body" cols="30" rows="4" class="bg-gray-100 border-2 w-full p-4 rounded-lg 
+					<textarea name="body" id="body" cols="30" rows="4" class="bg-gray-100 border-2 w-full p-4 rounded-lg
 
 							@error('body') border-red-500 @enderror" placeholder="Post something!"></textarea>
 
@@ -93,22 +99,22 @@
 
 				<div class="float-right flex items-center">
 					<div class=" inline-block mr-2">
-						<label class=" w-full flex flex-col items-center px-2 py-3 bg-white rounded-md 
-					shadow-md tracking-wide uppercase border border-blue cursor-pointer hover:bg-purple-600 
+						<label class=" w-full flex flex-col items-center px-2 py-3 bg-white rounded-md
+					shadow-md tracking-wide uppercase border border-blue cursor-pointer hover:bg-purple-600
 					hover:text-white text-purple-600 ease-linear transition-all duration-150">
 							<span class="leading-normal" style="font-size:13px">Upload an image!</span>
 							<input type="file" class="hidden" name="image" />
 					</div>
 					<div class=" inline-block mr-2">
-						<input type="reset" value="Reset" class=" w-full flex flex-col items-center px-2 py-3 bg-white rounded-md 
-					shadow-md tracking-wide uppercase border border-blue cursor-pointer hover:bg-purple-600 
+						<input type="reset" value="Reset" class=" w-full flex flex-col items-center px-2 py-3 bg-white rounded-md
+					shadow-md tracking-wide uppercase border border-blue cursor-pointer hover:bg-purple-600
 					hover:text-white text-purple-600 ease-linear transition-all duration-150 leading-normal" style="font-size:13px"
 					onclick="clearFile(event)">
 					</div>
 					<div class="inline-block">
 						<link rel="stylesheet" href="css/button.css">
-						<button type="submit" class="button button--moema px-5 py-3 bg-gray-800 
-						hover:bg-gray-700 hover:text-white text-gray-300 relative block focus:outline-none border-2 
+						<button type="submit" class="button button--moema px-5 py-3 bg-gray-800
+						hover:bg-gray-700 hover:text-white text-gray-300 relative block focus:outline-none border-2
 						border-solid rounded-lg text-sm text-center font-semibold uppercase tracking-widest">Post!</button>
 
 
