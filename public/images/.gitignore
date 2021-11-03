@@ -3,3 +3,5 @@
 **/*.gif
 **/*.jpeg
 !/boy.png
+!/background.jpg
+!/logo4kid.png

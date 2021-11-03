@@ -16,7 +16,7 @@
 @endauth
 <div class="flex justify-center">
 	<div class="w-2/4">
-		<div class="p-6 bg-gray-800 mb-1 rounded-lg ">
+		<div class="p-6 bg-gray-800 rounded-lg">
 			<div class="grid justify-items-center text-center">
 				<div class="mb-2">
 					@if ($user->avatar != NULL)
@@ -72,7 +72,7 @@
 
 			@auth
 			@if(Auth::user()->id == $user->id)
-			<form action="{{ route('posts') }}" method="post" class=" mb-16" onsubmit="initBurst()">
+			<form action="{{ route('posts') }}" method="post" class=" mb-20" onsubmit="initBurst()">
 
 				<input type="hidden" name="_token" value="{{ csrf_token() }}" />
 

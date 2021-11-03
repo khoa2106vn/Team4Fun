@@ -10,7 +10,6 @@
 	<div class="items-center effect-six">
 		<a href="{{ route('posts') }}"> <i class="fas fa-mail-bulk"></i> Posts</a>
 		<a href="{{ route('users.posts', Auth::user()) }}"> <i class="fas fa-id-card-alt"></i> Profile</a>
-		<a></a>
 	</div>
 </div>
 @endauth

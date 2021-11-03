@@ -19,6 +19,7 @@ class PostController extends Controller
             'posts' => $posts
         ]);
     }
+    
     public function storeAvatar(Request $request)
     {
         $this->validate($request, [
