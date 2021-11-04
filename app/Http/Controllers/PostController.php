@@ -68,6 +68,38 @@ class PostController extends Controller
         return back();
     }
 
+    public function edit(Request $request, $id)
+    {
+        $this->validate($request, [
+            'body' => 'required',
+            'image' => 'mimes:jpg,png,jpeg,gif|max:10096',
+        ]);
+        $newImageName = NULL;
+        if ($request->has('image')) {
+            $newImageName = time() . '.' . $request->image->extension();
+
+            $request->image->move(public_path('images'), $newImageName);
+        }
+        //THêm từ cấm
+        $censor = new CensorWords;
+        $langs = array('en-us','jp');
+        $badwords = $censor->setDictionary($langs);
+
+        $censor->setReplaceChar("*");
+        $string = $censor->censorString($request->body);
+
+        if ($string['clean']!=$request->body){
+            $string['clean']='(´｡• ω •｡`) ♡';
+        }
+
+        Post::find ($id)->update([
+            'body' => $string['clean'],
+            'image_path' => $newImageName,
+        ]);
+
+        return back();
+    }
+
     public function destroy(Post $post)
     {
 

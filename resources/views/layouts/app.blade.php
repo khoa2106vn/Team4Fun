@@ -5,8 +5,13 @@
 	<title>4Kids</title>
 	<link rel="stylesheet" href="{{ asset('css/app.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/laser_header.css') }}">
-	<link rel="stylesheet" href="css/sidebar.css">
-
+	<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+	<script src="{{ asset('js/hideClick.js') }}"></script>
+	<link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
+	<link rel="stylesheet" href="css/button.css">
+	<link rel="stylesheet" href="{{ asset('fontawesome/css/all.css') }}">
+	<script src="{{ asset('js/imagePreview.js') }}"></script>
+	<link href="https://cdn.jsdelivr.net/npm/@tailwindcss/custom-forms@0.2.1/dist/custom-forms.css" rel="stylesheet" />
 </head>
 
 <body class="bg-blue-200 ">
@@ -64,7 +69,7 @@
 		</div>
 	</div>
 	<div class="">
-	@yield('content')
+		@yield('content')
 	</div>
 </body>
 

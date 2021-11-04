@@ -1,8 +1,5 @@
 @foreach($comments as $comment)
-<script src="{{ asset('js/hideClick.js') }}"></script>
-<link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
-<link rel="stylesheet" href="css/button.css">
-<link rel="stylesheet" href="{{ asset('fontawesome/css/all.css') }}">
+
 
 
 <div class=" transition duration-500 ease-in-out transform hover:-translate-y-1
