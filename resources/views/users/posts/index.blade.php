@@ -20,10 +20,10 @@
 			<div class="grid justify-items-center text-center">
 				<div class="mb-2">
 					@if ($user->avatar != NULL)
-					<img src="{{ asset('images/' . $user->avatar) }}" class="transition duration-500 ease-in-out transform hover:-translate-y-1
+					<img id="output" src="{{ asset('images/' . $user->avatar) }}" class="transition duration-500 ease-in-out transform hover:-translate-y-1
                 hover:scale-110 mt-1 hover:bg-gray-200 inline object-cover w-16 h-16 mr-2 rounded-full border-solid border-4 border-light-blue-500" style="width: 250px; height: 250px">
 					@else
-					<img src="{{ asset('images/boy.png') }}" class="transition duration-500 ease-in-out transform hover:-translate-y-1
+					<img id="output" src="{{ asset('images/boy.png') }}" class="transition duration-500 ease-in-out transform hover:-translate-y-1
                 hover:scale-110 mt-1 hover:bg-gray-200 inline object-cover w-16 h-16 mr-2 rounded-full border-solid border-4 border-light-blue-500" style="width: 250px; height: 250px">
 					@endif
 				</div>
@@ -49,7 +49,7 @@
 						border-solid rounded-lg text-sm text-center font-semibold uppercase tracking-widest">
 									<i class="fas fa-cloud-upload-alt fa-3x" style="font-size: 15px"></i>
 									<span class="mt-2 leading-normal" style="font-size:13px">Change avatar</span>
-									<input type="file" class="hidden" name="image" />
+									<input type="file" class="hidden" onchange="loadFile(event)" name="image" />
 							</div>
 							<div class="inline-block">
 								<link rel="stylesheet" href="css/button.css">
