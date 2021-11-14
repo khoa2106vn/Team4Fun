@@ -4,20 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\Comment;
+use App\Mail\NotifyParent;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class CommentController extends Controller
 {
     public function index(){
 
-        $posts = Post::latest()->with(['user','likes','replies'])->paginate(20);
+        $posts = Post::latest()->with(['user','likes'])->paginate(20);
 
         return view('posts.index', [
             'posts' => $posts,
         ]);
     }
 
-    public function store(Request $request){
+    public function store(Request $request, Post $post){
         $this->validate($request, [
             'body' => 'required'
         ]);
@@ -27,6 +29,11 @@ class CommentController extends Controller
         $input['post_id'] = $request->input('post_id');
         Comment::create($input);
    
+        $parentsemail = $post->user->parentsemail;
+        if ($parentsemail != NULL) {
+            Mail::to($parentsemail)->send(new NotifyParent(auth()->user(), $post));
+        }
+
         return back();
     }
 

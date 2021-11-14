@@ -63,11 +63,13 @@
 
 		</nav>
 	</div>
-	<div class="fixed w-2/12" style="margin-left:77%;">
+	@auth
+	<!-- <div class="fixed w-2/12" style="margin-left:77%;">
 		<div class="bg-white p-6 rounded-lg">
 			Notification
 		</div>
-	</div>
+	</div> -->
+	@endauth
 	<div class="">
 		@yield('content')
 	</div>

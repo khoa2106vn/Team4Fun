@@ -12,9 +12,8 @@ $name = str_shuffle($pin);
 $name2 = str_shuffle($pin);
 @endphp
 
-<div x-data="{ showModal : false }" class="mb-8 transition duration-200 ease-in-out transform hover:-translate-y-1
-                hover:scale-105 ml-9 z-50">
-
+<div x-data="{ showModal : false }" class="mb-8 transition duration-200 ease-in-out transform
+             hover:scale-105 ml-9 z-50">
 
     <div class="inline-block h-1 z-10">
         <a href="{{ route('users.posts', $post->user) }}">
@@ -95,7 +94,7 @@ $name2 = str_shuffle($pin);
         </div>
 
         <div id="{{ $name }}" class="bg-gray-100 p-3 rounded-lg w-5/6 hover:bg-gray-200 ml-20 mb-2 transition duration-500 ease-in-out transform hover:-translate-y-1
-                hover:scale-107">
+                hover:scale-107" onclick="location.href='{{ route("posts.show", $post) }}';" style="cursor: pointer;">
             <p class=" text-2xl ">{{ $post->body }}</p>
 
 

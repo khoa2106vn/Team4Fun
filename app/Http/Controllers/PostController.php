@@ -2,24 +2,26 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Models\Post;
 use App\Models\User;
+use App\Mail\NotifyParent;
 use Illuminate\Http\Request;
 use Snipe\BanBuilder\CensorWords;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class PostController extends Controller
 {
     public function index()
     {
 
-        $posts = Post::latest()->with(['user', 'likes','comments'])->paginate(20);
+        $posts = Post::latest()->with(['user', 'likes', 'comments'])->paginate(20);
 
         return view('posts.index', [
             'posts' => $posts
         ]);
     }
-    
+
     public function storeAvatar(Request $request)
     {
         $this->validate($request, [
@@ -31,7 +33,7 @@ class PostController extends Controller
 
             $request->image->move(public_path('images'), $newImageName);
         }
-        User::where ('id',$request->user()->id)->update(['avatar' => $newImageName]);
+        User::where('id', $request->user()->id)->update(['avatar' => $newImageName]);
 
         return back();
     }
@@ -50,21 +52,25 @@ class PostController extends Controller
         }
         //THêm từ cấm
         $censor = new CensorWords;
-        $langs = array('en-us','jp');
+        $langs = array('en-us', 'jp');
         $badwords = $censor->setDictionary($langs);
 
         $censor->setReplaceChar("*");
         $string = $censor->censorString($request->body);
 
-        if ($string['clean']!=$request->body){
-            $string['clean']='(´｡• ω •｡`) ♡';
+        if ($string['clean'] != $request->body) {
+            $string['clean'] = '(´｡• ω •｡`) ♡';
         }
 
-        $request->user()->posts()->create([
+        $post = $request->user()->posts()->create([
             'body' => $string['clean'],
             'image_path' => $newImageName,
         ]);
 
+        $parentsemail = $post->user->parentsemail;
+        if ($parentsemail != NULL) {
+            Mail::to($parentsemail)->send(new NotifyParent(auth()->user(), $post));
+        }
         return back();
     }
 
@@ -82,17 +88,17 @@ class PostController extends Controller
         }
         //THêm từ cấm
         $censor = new CensorWords;
-        $langs = array('en-us','jp');
+        $langs = array('en-us', 'jp');
         $badwords = $censor->setDictionary($langs);
 
         $censor->setReplaceChar("*");
         $string = $censor->censorString($request->body);
 
-        if ($string['clean']!=$request->body){
-            $string['clean']='(´｡• ω •｡`) ♡';
+        if ($string['clean'] != $request->body) {
+            $string['clean'] = '(´｡• ω •｡`) ♡';
         }
 
-        Post::find ($id)->update([
+        Post::find($id)->update([
             'body' => $string['clean'],
             'image_path' => $newImageName,
         ]);
@@ -107,5 +113,13 @@ class PostController extends Controller
 
         $post->delete();
         return back();
+    }
+
+
+    public function show(Post $post)
+    {
+        return view('posts.show', [
+            'post' => $post
+        ]);
     }
 }
