@@ -72,7 +72,7 @@
 
 			@auth
 			@if(Auth::user()->id == $user->id)
-			<form action="{{ route('posts') }}" method="post" class=" mb-20" onsubmit="initBurst()">
+			<form action="{{ route('posts') }}" method="post" enctype="multipart/form-data" class=" mb-20" onsubmit="initBurst()">
 
 				<input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
