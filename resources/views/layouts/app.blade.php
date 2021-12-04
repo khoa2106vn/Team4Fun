@@ -26,6 +26,19 @@
 				</li>
 			</ul>
 
+			<ul class="flex items-center mt-1">
+				<li>
+					<div class="topnav">
+						<div class="search-container">
+							<form action=" {{ route('posts') }} " method="GET" class="">
+								<input type="text" class=" pl-2 pr-40 py-1" name="search" placeholder="Search.." 
+								value="{{ request()->query('search') }}">
+							</form>
+						</div>
+					</div>
+				</li>
+			</ul>
+
 			<ul class="flex items-center">
 				@auth
 				<li class="mr-1">

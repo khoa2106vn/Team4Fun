@@ -68,10 +68,10 @@
 			@foreach ($posts as $post)
 			<x-post :post="$post" />
 			@endforeach
-			{{ $posts->links() }}
+			{{ $posts->appends([ 'search' => request()->query('search') ])->links() }}
 
 			@else
-			<p>There are no posts!</p>
+			<p>Can't find any posts!</p>
 			@endif
 		</div>
 	</div>
