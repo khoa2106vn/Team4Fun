@@ -106,8 +106,13 @@ class PostController extends Controller
 
         Post::find($id)->update([
             'body' => $string['clean'],
-            'image_path' => $newImageName,
         ]);
+        
+        if ($newImageName != NULL){
+            Post::find($id)->update([
+                'image_path' => $newImageName,
+            ]);
+        }
 
         return back();
     }

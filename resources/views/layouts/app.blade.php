@@ -31,8 +31,7 @@
 					<div class="topnav">
 						<div class="search-container">
 							<form action=" {{ route('posts') }} " method="GET" class="">
-								<input type="text" class=" pl-2 pr-40 py-1" name="search" placeholder="Search.." 
-								value="{{ request()->query('search') }}">
+								<input type="text" class=" pl-2 pr-40 py-1" name="search" placeholder="Search.." value="{{ request()->query('search') }}">
 							</form>
 						</div>
 					</div>
@@ -76,13 +75,36 @@
 
 		</nav>
 	</div>
-	@auth
-	<!-- <div class="fixed w-2/12" style="margin-left:77%;">
-		<div class="bg-white p-6 rounded-lg">
-			Notification
+	<div class="fixed w-2/12" style="margin-left:77%;">
+		<div class="bg-white p-6 rounded-lg ">
+			<span class="text-xl ">Feedback</span>
+			<form action="{{ route('feedback') }}" method="POST" id="feedback" >
+				@csrf
+				<input type="text" name="email" id="email" placeholder="Your email" class="bg-gray-100 border-2 w-full p-2 rounded-lg 
+						@error('email') border-red-500 @enderror my-2 pl-4">
+
+				@error('email')
+				<div class="text-red-500 mt-2 text-sm">
+					{{ $message }}
+				</div>
+				@enderror
+				<textarea name="feedback_body" id="feedback_body" cols="30" rows="4" class="bg-gray-100 border-2 w-full p-4 rounded-lg 
+						@error('feedback_body') border-red-500 @enderror" placeholder="Send us your feedback!"></textarea>
+
+				@error('feedback_body')
+				<div class="text-red-500 mt-2 text-sm">
+					{{ $message }}
+				</div>
+				@enderror
+				<div class="inline-block">
+					<button form="feedback" class="button button--moema px-5 py-3 bg-gray-800 
+						hover:bg-gray-700 hover:text-white text-gray-300 block focus:outline-none border-2 
+						border-solid rounded-lg text-sm text-center font-semibold uppercase tracking-widest" type="submit">Submit</button>
+				</div>
+			</form>
+
 		</div>
-	</div> -->
-	@endauth
+	</div>
 	<div class="">
 		@yield('content')
 	</div>
