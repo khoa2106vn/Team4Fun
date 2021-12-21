@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>4Kids</title>
+	<title>4Fun</title>
 	<link rel="stylesheet" href="{{ asset('css/app.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/laser_header.css') }}">
 	<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
@@ -75,7 +75,7 @@
 
 		</nav>
 	</div>
-	<div class="fixed w-2/12" style="margin-left:77%;">
+	<!-- <div class="fixed w-2/12" style="margin-left:77%;">
 		<div class="bg-white p-6 rounded-lg ">
 			<span class="text-xl ">Feedback</span>
 			<form action="{{ route('feedback') }}" method="POST" id="feedback" >
@@ -104,7 +104,7 @@
 			</form>
 
 		</div>
-	</div>
+	</div> -->
 	<div class="">
 		@yield('content')
 	</div>

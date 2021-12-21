@@ -13,8 +13,6 @@
 <div class="flex justify-center">
 
 	
-
-
 	<div class="w-2/4 bg-white p-6 rounded-lg">
 		<div class=" mb-20">
 			@auth
