@@ -14,6 +14,9 @@
 
 }
 
+
+
+
 /* The navigation menu links */
 .sidenav a {
   padding: 6px 8px 6px 16px;
@@ -70,4 +73,5 @@ a.fill-div {
   height: 100%;
   width: 100%;
   text-decoration: none;
+
 }

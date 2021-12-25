@@ -28,6 +28,23 @@ class PostController extends Controller
         ]);
     }
 
+    public function notify_index()
+    {
+
+        $search = request()->query('search');
+
+        if ($search){
+            $posts = Post::where('body', 'LIKE', "%{$search}%")->latest()->with(['user', 'likes', 'comments'])->paginate(8);
+        } else {
+            $posts = Post::latest()->with(['user', 'likes', 'comments'])->paginate(8);
+        }
+
+        return view('posts.notify', [
+            'posts' => $posts
+        ]);
+    }
+
+
     public function storeAvatar(Request $request)
     {
         $this->validate($request, [
