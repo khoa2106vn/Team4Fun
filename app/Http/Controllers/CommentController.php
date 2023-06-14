@@ -29,7 +29,7 @@ class CommentController extends Controller
         $input['post_id'] = $request->input('post_id');
         Comment::create($input);
    
-        $parentsemail = $post->user->parentsemail;
+        $parentsemail = auth()->user()->parentsemail;
         if ($parentsemail != NULL) {
             Mail::to($parentsemail)->send(new NotifyParent(auth()->user(), $post));
         }
