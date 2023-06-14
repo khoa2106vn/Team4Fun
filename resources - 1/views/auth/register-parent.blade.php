@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="justify-center flex">
-	<p class="text-3xl bg-white p-6 rounded-lg w-3/12 mb-2 text-gray-500">Registration for User Account</p>
+	<p class="text-3xl bg-white p-6 rounded-lg w-3/12 mb-2 text-gray-500">Registration for Parent Account</p>
 </div>
 <div class="flex justify-center">
 	<div class="w-3/12 bg-white p-6 rounded-lg">
